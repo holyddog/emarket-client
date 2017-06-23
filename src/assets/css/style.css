@@ -1,0 +1,163 @@
+body {
+    background-color: #f3f3f3;
+}
+
+.bg-red {
+    background-color: #F44336;
+}
+.bg-green {
+    background-color: #4CAF50;
+}
+.bg-blue {
+    background-color: #03A9F4;
+}
+.bg-orange {
+    background-color: #FF5722;
+}
+.bg-dark-grey {
+    background-color: #616161;
+}
+.bg-dark-blue {    
+    background-color: #0288D1;
+}
+.bg-dark-red {
+    background-color: #D32F2F;
+}
+
+.color-black {
+    color: #333;
+}
+.color-red {
+    color: #F44336;
+}
+.color-green {
+    color: #4CAF50;
+}
+.color-orange {
+    color: #FF5722;
+}
+.color-blue {
+    color: #03A9F4;
+}
+
+.shadow-border {
+    -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
+    z-index: 1;
+}
+
+.pad-10 {
+    padding: 10px !important;
+}
+.pad-15 {
+    padding: 15px !important;
+}
+
+.p-relative {
+    position: relative !important;
+}
+.p-absolute {
+    position: absolute !important;
+}
+
+#logo {
+    width: 200px;
+}
+
+#pnl-cart {    
+    padding: 8px 10px;
+}
+#pnl-cart .material-icons {    
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    margin-top: -5px;
+}
+#pnl-cart .count {    
+    margin-left: 25px;
+    margin-right: 5px;
+    padding: 5px;
+}
+
+#btn-login {    
+    position: relative;
+    padding-left: 45px;
+}
+#btn-login .material-icons {    
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    margin-top: -5px;
+    left: 15px;
+}
+
+.sb-title {    
+    padding: 10px 12px;
+}
+
+.over-margin {
+    margin: -1px -1px 0 -1px !important;
+}
+
+.header {
+    height: 120px;
+}
+
+.title-line-height {
+    line-height: 1.2rem;
+}
+
+.cat-menu {
+    padding: 12px 20px;
+    color: #fff;
+    z-index: 1;
+}
+.cat-menu.active {
+    background-color: #0277BD;
+}
+a.cat-menu:active, a.cat-menu:focus, a.cat-menu:hover {
+  color: #fff;
+}
+
+.cat-item {
+    border-bottom: solid 1px #e2e2e2;
+    padding: 10px 12px;
+    color: #333;
+}
+li:last-child .cat-item {
+    border-bottom-style: none !important;
+}
+
+.menu-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 44px;
+}
+
+.bottom-line {
+    border-bottom: solid 1px #e2e2e2;
+}
+
+#txt-search {
+    border: solid 1px #ccc;
+    outline: 0;
+    padding: 12px 58px 12px 12px;
+}
+#btn-search {
+    cursor: pointer;
+    border-style: none;
+    margin: 1px;
+    color: #fff;
+    position: absolute;
+    right: -1;
+    top: -1;
+    bottom: -1;
+    width: 46px;
+}
+
+#pnl-highlight {
+    height: 370px;
+    overflow: hidden;
+}

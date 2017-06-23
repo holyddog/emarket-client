@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="mb-4 shadow-border">
+                <h5 class="sb-title over-margin text-white text-uppercase bg-green">Categories</h5>
+                <ul class="list-inline bg-light-4">
+                    <li *ngFor="let c of categories">
+                        <a href="#" class="cat-item d-block">{{c.name}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-light-4 mg-4 shadow-border">
+                <h5 class="sb-title m-0 text-uppercase bottom-line"><i class="material-icons color-orange">whatshot</i> Best Seller</h5>
+                <ul class="list-inline bg-light-4 p-2">
+                    <li *ngFor="let bs of bSeller" class="d-flex flex-row p-2">
+                        <div style="width: 90px" class="mr-2">
+                            <img class="img-fluid" [src]="bs.image">
+                        </div>
+                        <div>
+                            <div class="title-line-height pb-1">{{bs.name}}</div>
+                            <div class="font-weight-bold color-red">{{bs.price}}฿</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div id="pnl-highlight">
+                <div #carousel class="owl-carousel">
+                    <div class="page">
+                        <img src="/images/p1.jpg">
+                    </div>
+                    <div class="page">
+                        <img src="/images/p2.jpg">
+                    </div>
+                    <div class="page">
+                        <img src="/images/p3.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="container shadow-border">
+                <div class="row bg-dark-blue text-white text-center">
+                    <div class="col-md-4 p-md">
+                        <div class="typography-subheading text-uppercase font-weight-bold">Dictum Facilis</div>
+                        <div class="typography-caption">Aliquip lacus interdum similique</div>
+                    </div>
+                    <div class="col-md-4 p-md">
+                        <div class="typography-subheading text-uppercase font-weight-bold">Volutpat Lobortis</div>
+                        <div class="typography-caption">Porttitor libero, dolorum soluta</div>
+                    </div>
+                    <div class="col-md-4 p-md">
+                        <div class="typography-subheading text-uppercase font-weight-bold">Dictum Facilis</div>
+                        <div class="typography-caption">Dictum mollitia, faucibus augue</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light-4 mt-4 shadow-border">
+                <h3 class="typography-title text-uppercase m-0 p-3 bottom-line">New Products</h3>
+                <div class="container p-3">
+                    <div class="row">
+                        <a *ngFor="let i of items" class="col-md-3 pt-3 pb-3" routerLink="/product/{{i.id}}">
+                            <img class="img-fluid" [src]="i.image">
+                            <div class="typography-subheading title-line-height pt-3 pb-1">{{i.name}}</div>
+                            <div class="font-weight-bold color-red">{{i.price}}฿</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-light-4 mt-4 shadow-border">
+                <h3 class="typography-title text-uppercase m-0 p-3 bottom-line">Featured Products</h3>
+                <div class="container p-3">
+                    <div class="row">
+                        <div *ngFor="let f of features" class="col-md-3">
+                            <img class="img-fluid" [src]="f.image">
+                            <div class="typography-subheading title-line-height pt-3 pb-1">{{f.name}}</div>
+                            <div class="font-weight-bold color-red">{{f.price}}฿</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

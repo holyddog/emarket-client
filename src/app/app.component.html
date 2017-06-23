@@ -1,0 +1,36 @@
+<header class="container-fluid p-relative">
+    <div class="container">
+        <div class="row header">
+            <div class="align-self-center col-md-3">
+                <div id="logo">
+                    <img class="img-fluid" alt="Prompt Post" src="/images/logo.png">
+                </div>
+            </div>
+            <div class="align-self-center col-md-7">
+                <div class="p-relative">
+                    <input id="txt-search" class="w-100" type="text" />
+                    <button id="btn-search" class="bg-green">
+                        <i class="material-icons">search</i>
+                    </button>
+                </div>
+            </div>
+            <div class="align-self-center col-md-2">
+                <div id="pnl-cart" class="text-center bg-dark-red text-white">
+                    <i class="material-icons">shopping_cart</i>
+                    <span class="d-inline-block bg-dark-blue count">2</span>
+                    <span class="d-inline-block">500.00$</span>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end text-uppercase">
+            <a class="cat-menu" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+            <a class="cat-menu" routerLink="#" routerLinkActive="active" *ngFor="let c of categories">{{c.name}}</a>                
+            <a id="btn-login" class="ml-auto cat-menu" routerLink="/login" routerLinkActive="active"><i class="material-icons">lock_outline</i>Log In</a>
+        </div>
+    </div>
+    <div class="menu-bar bg-dark-blue"></div>
+</header>
+<div class="mt-4 mb-4">
+    <router-outlet></router-outlet>
+</div>
+<footer class="container-fluid bg-dark-grey pad-15 text-center text-white">Universal Demo © 2017</footer>
