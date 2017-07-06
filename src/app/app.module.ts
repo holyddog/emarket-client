@@ -6,10 +6,20 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { TransferHttpModule } from '../modules/transfer-http/transfer-http.module';
 
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { ProductComponent } from './product/product.component';
+import { SharedModule } from './shared.module';
+import { AccountModule } from './account.module';
+import { CheckoutModule } from './checkout.module';
+
+import { AppComponent } from './components/app.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent, RegisterSuccessComponent } from './components/register/register.component';
+import { ProductComponent } from './components/product/product.component';
+
+import { AuthService } from './services/auth.service';
+import { StorageService } from './services/storage.service';
+import { ItemService } from './services/item.service';
+import { CartService } from './services/cart.service';
 
 @NgModule({
     imports: [
@@ -17,6 +27,9 @@ import { ProductComponent } from './product/product.component';
         HttpModule,
         FormsModule,
         TransferHttpModule,
+        SharedModule,
+        AccountModule,
+        CheckoutModule,
         RouterModule.forRoot([
             {
                 path: '',
@@ -24,11 +37,17 @@ import { ProductComponent } from './product/product.component';
                 pathMatch: 'full'
             },
             { path: 'login', component: LoginComponent },
+            { path: 'register', component: RegisterComponent },
+            { path: 'register-success', component: RegisterSuccessComponent },
             { path: 'product', component: ProductComponent },
             { path: 'product/:id', component: ProductComponent }
         ])
     ],
-    declarations: [AppComponent, HomeComponent, LoginComponent, ProductComponent],
-    exports: [AppComponent]
+    declarations: [
+        AppComponent, HomeComponent, LoginComponent, ProductComponent,
+        RegisterComponent, RegisterSuccessComponent
+    ],
+    exports: [AppComponent],
+    providers: [AuthService, StorageService, ItemService, CartService]
 })
 export class AppModule { }

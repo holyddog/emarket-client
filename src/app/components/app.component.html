@@ -1,0 +1,42 @@
+<div>
+    <header class="container-fluid p-relative">
+        <div class="container">
+            <div class="row header">
+                <div class="align-self-center col-md-3">
+                    <div id="logo">
+                        <img class="img-fluid" alt="Prompt Post" src="/images/logo_white.png">
+                    </div>
+                </div>
+                <div class="align-self-center col-md-7">
+                    <div class="p-relative">
+                        <input id="txt-search" class="form-control border" type="text" />
+                        <button id="btn-search" class="bg-green">
+                        <i class="material-icons">search</i>
+                    </button>
+                    </div>
+                </div>
+                <div class="align-self-center col-md-2">
+                    <a id="pnl-cart" class="text-center float-right text-white pl-3 pr-3 pt-1 pb-1" routerLink="/checkout">
+                        <i class="material-icons">shopping_cart</i>
+                        <span class="d-inline-block bg-green p-1 count">{{cartService.count}}</span>
+                        <span class="d-inline-block">{{cartService.price | number: '1.2-2'}}฿</span>
+                    </a>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end text-uppercase">
+                <a class="cat-menu" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+                <a class="cat-menu" routerLink="#" routerLinkActive="active" *ngFor="let c of categories">{{c.name}}</a>
+                <a *ngIf="authService.user == null" class="ml-auto cat-menu btn-icon-text" routerLink="/login" routerLinkActive="active"><i class="material-icons">lock_outline</i>Log In</a>
+                <a *ngIf="authService.user != null" class="ml-auto cat-menu btn-icon-text" routerLink="/account" routerLinkActive="active"><i class="material-icons">account_circle</i>{{authService.user.fname + " " + authService.user.lname}}</a>
+            </div>
+        </div>
+        <div class="menu-bar bg-dark-blue"></div>
+    </header>
+    <div class="mt-4 mb-4">
+        <router-outlet></router-outlet>
+    </div>
+    <footer class="container-fluid bg-dark-grey pad-15 text-center text-white">Prompt Post © 2017</footer>
+</div>
+<!--<div [hidden]="isPlatformServer == false" class="waiting-panel d-flex">
+    <h3 class="media-body text-center align-self-center">Loading...</h3>
+</div>-->

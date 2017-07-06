@@ -1,0 +1,42 @@
+<div>You have <b>{{cartService.count}} item{{(cartService.count > 1)? 's': ''}}</b> in your order</div>
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th></th>
+            <th class="text-center">Product</th>
+            <th class="text-center">Price</th>
+            <th class="text-center">Quantity</th>
+            <th class="text-center">Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of cartService.list()">
+            <td style="width: 80px">
+                <a (click)="cartService.remove(i)"><i class="material-icons">close</i></a>
+            </td>
+            <td>
+                <div class="d-flex flex-row">
+                    <div class="pic mr-4">
+                        <img class="img-thumbnail" [src]="config.ServiceUrl + i.pic">
+                    </div>
+                    <div class="align-self-center typography-body-2">{{i.name}}</div>
+                </div>
+            </td>
+            <td style="width: 150px" class="text-center">{{i.price | number: '1.2-2'}}฿</td>
+            <td style="width: 200px" class="text-center">
+                <item-qty [qty]="i.qty" (change)="qtyChange(i, $event)"></item-qty>
+            </td>
+            <td style="width: 150px" class="text-center">{{i.tprice | number: '1.2-2'}}฿</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="5" class="text-right">
+                <div class="typography-subheading">Subtotal:<span class="pl-4 typography-headline color-red">{{cartService.price | number: '1.2-2'}}฿</span></div>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<div class="mt-4 text-right">
+    <button class="btn btn-secondary" routerLink="/checkout/shipping">Shipping Info<i class="material-icons">navigate_next</i></button>
+</div>

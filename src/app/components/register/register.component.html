@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-5 bg-light-4 shadow-border p-4">
+            <form ngNoForm>
+                <h3 class="title-bar">Create Account</h3>
+                <div class="form-group">
+                    <label for="txt-email">Email</label>
+                    <input class="form-control" id="txt-email" placeholder="Enter email" type="email" [(ngModel)]="email">
+                    <small class="form-text text-black-secondary">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="txt-password">Password</label>
+                    <input class="form-control" id="txt-password" type="password" [(ngModel)]="password">
+                    <small class="form-text text-black-secondary">Password must be at least 6 characters..</small>
+                </div>
+                <div class="form-group">
+                    <label for="txt-password">Confirm password</label>
+                    <input class="form-control" id="txt-password" type="password" [(ngModel)]="cpassword">
+                </div>
+                <div class="form-group">
+                    <label for="txt-fname">Firstname</label>
+                    <input class="form-control" id="txt-fname" type="text" [(ngModel)]="fname">
+                </div>
+                <div class="form-group">
+                    <label for="txt-lname">Lastname</label>
+                    <input class="form-control" id="txt-lname" type="text" [(ngModel)]="lname">
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" (click)="register()">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="msgDialog" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Warning</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">{{errMessage}}</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary text-white" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

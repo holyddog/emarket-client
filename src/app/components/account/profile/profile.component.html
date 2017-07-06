@@ -1,0 +1,31 @@
+<div class="container-fluid bg-light-4 p-4 shadow-border">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="title-bar">Profile</h3>
+        </div>
+    </div>
+    <form ngNoForm>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="txt-email">Email</label>
+                    <input class="form-control" id="txt-email" type="email" readonly [value]="user.email">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="txt-fname">Firstname</label>
+                    <input class="form-control" id="txt-fname" type="text" [(ngModel)]="fname">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="txt-lname">Lastname</label>
+                    <input class="form-control" id="txt-lname" type="text" [(ngModel)]="lname">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,6 +1,22 @@
 body {
     background-color: #f3f3f3;
 }
+body.active {
+    overflow: auto;
+}
+
+button {
+    outline: 0 !important;
+}
+
+a { cursor: pointer; }
+
+header {
+    background-color: #0277BD;
+    
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+}
 
 .bg-red {
     background-color: #F44336;
@@ -22,6 +38,9 @@ body {
 }
 .bg-dark-red {
     background-color: #D32F2F;
+}
+.bg-dark-orange {
+    background-color: #F57C00;
 }
 
 .color-black {
@@ -60,12 +79,18 @@ body {
     position: absolute !important;
 }
 
+.form-control.border {
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
 #logo {
     width: 200px;
 }
 
 #pnl-cart {    
-    padding: 8px 10px;
+    background-color: #01579B;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
 }
 #pnl-cart .material-icons {    
     font-size: 20px;
@@ -76,19 +101,33 @@ body {
 #pnl-cart .count {    
     margin-left: 25px;
     margin-right: 5px;
-    padding: 5px;
+    border-radius: 2px;
 }
 
-#btn-login {    
-    position: relative;
-    padding-left: 45px;
+.btn .material-icons {
+    margin-left: .5rem !important;
+    font-size: 1.2rem !important;
+    line-height: .8rem !important;
 }
-#btn-login .material-icons {    
+
+.btn-icon-text {    
+    position: relative;
+    padding-left: 45px !important;
+}
+.btn-icon-text .material-icons {    
     font-size: 20px;
     position: absolute;
     top: 50%;
     margin-top: -5px;
     left: 15px;
+}
+
+.thumb-images {
+    width: 100px;
+    margin-right: 1rem;
+}
+.thumb-images li {
+    margin-bottom: 1rem;
 }
 
 .sb-title {    
@@ -100,7 +139,7 @@ body {
 }
 
 .header {
-    height: 120px;
+    height: 100px;
 }
 
 .title-line-height {
@@ -113,7 +152,7 @@ body {
     z-index: 1;
 }
 .cat-menu.active {
-    background-color: #0277BD;
+    background-color: #0D47A1;
 }
 a.cat-menu:active, a.cat-menu:focus, a.cat-menu:hover {
   color: #fff;
@@ -128,12 +167,19 @@ li:last-child .cat-item {
     border-bottom-style: none !important;
 }
 
+.title-bar {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #d9d9d9;
+    margin-bottom: 1.5rem;
+}
+
 .menu-bar {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 44px;
+    background-color: #01579B;
 }
 
 .bottom-line {
@@ -141,9 +187,10 @@ li:last-child .cat-item {
 }
 
 #txt-search {
-    border: solid 1px #ccc;
     outline: 0;
-    padding: 12px 58px 12px 12px;
+    padding: 12px 46px 12px 12px;
+    background-color: #fff;
+    border-radius: 2px;
 }
 #btn-search {
     cursor: pointer;
@@ -152,9 +199,11 @@ li:last-child .cat-item {
     color: #fff;
     position: absolute;
     right: -1;
-    top: -1;
-    bottom: -1;
-    width: 46px;
+    top: 0;
+    bottom: 0;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    display: inline-block;
 }
 
 #pnl-highlight {

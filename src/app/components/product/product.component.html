@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div *ngIf="item != null" class="container bg-light-4 p-4 shadow-border">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="d-flex flex-row">
+                            <ul class="thumb-images list-inline" style="width: 100px">
+                                <li *ngFor="let p of item.pics; index as i">
+                                    <a (click)="focusPic(i)"><img class="img-fluid" [src]="config.ServiceUrl + p"></a>
+                                </li>
+                            </ul>
+                            <div class="col">
+                                <img class="img-fluid" [src]="config.ServiceUrl + item.pic">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <h2 class="mb-3">{{item.name}}</h2>
+                        <div class="mb-3">{{item.desc}}</div>
+                        <div class="typography-headline color-red mb-3">{{item.price.$numberDecimal | number: '1.2-2'}}฿</div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <item-qty [qty]="qty" (change)="qtyChange($event)"></item-qty>
+                            </div>
+                            <div class="col-md-6">
+                                <button (click)="addCart()" class="btn btn-secondary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

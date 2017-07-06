@@ -1,6 +1,9 @@
 import { PLATFORM_ID, Component, OnInit, AfterViewInit, ViewChild, ElementRef, Inject } from '@angular/core';
 import { isPlatformServer, isPlatformBrowser } from '@angular/common';
 
+import { Config } from '../../consts/config.const';
+import { ItemService } from '../../services/item.service';
+
 declare var $: any;
 
 @Component({
@@ -9,6 +12,8 @@ declare var $: any;
 })
 export class HomeComponent implements OnInit, AfterViewInit {
     @ViewChild('carousel') carousel: ElementRef;
+
+    config: any = Config;
 
     categories: object[] = [{
         name: 'Clothing'
@@ -30,27 +35,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         name: 'Home and Garden'
     }];
 
-    items: object[] = [{
-        id: 1,
-        name: 'Facilisis dictumst',
-        price: 320,
-        image: 'images/i1.jpg'
-    }, {
-        id: 2,
-        name: 'Voluptatibus habitant',
-        price: 200,
-        image: 'images/i2.jpg'
-    }, {
-        id: 3,
-        name: 'Nulla accusamus',
-        price: 530,
-        image: 'images/i3.jpg'
-    }, {
-        id: 4,
-        name: 'Felis inceptos',
-        price: 410,
-        image: 'images/i4.jpg'
-    }];
+    newItems: object[] = [];
 
     features: object[] = [{
         name: 'Consequat sapien',
@@ -84,21 +69,25 @@ export class HomeComponent implements OnInit, AfterViewInit {
         image: 'images/i7.jpg'
     }];
 
-    constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
+    constructor(@Inject(PLATFORM_ID) private platformId: Object, private itemService: ItemService) { }
 
     ngOnInit() {
+        this.itemService.list()
+            .then(data => {
+                this.newItems = data;
+            });
     }
 
     ngAfterViewInit() {
         if (isPlatformBrowser(this.platformId)) {
-			$(this.carousel.nativeElement).owlCarousel({
-				items: 1,
-				animateOut: 'fadeOut',
-				loop: true,
-				margin: 0,
-				autoplay: true,
+            $(this.carousel.nativeElement).owlCarousel({
+                items: 1,
+                animateOut: 'fadeOut',
+                loop: true,
+                margin: 0,
+                autoplay: true,
                 autoHeight: false
-			});   
+            });
         }
     }
 }

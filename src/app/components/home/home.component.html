@@ -58,10 +58,10 @@
                 <h3 class="typography-title text-uppercase m-0 p-3 bottom-line">New Products</h3>
                 <div class="container p-3">
                     <div class="row">
-                        <a *ngFor="let i of items" class="col-md-3 pt-3 pb-3" routerLink="/product/{{i.id}}">
-                            <img class="img-fluid" [src]="i.image">
+                        <a *ngFor="let i of newItems" class="col-md-3 pt-3 pb-3" routerLink="/product/{{i.id}}">
+                            <img class="img-fluid" [src]="config.ServiceUrl + i.pic">
                             <div class="typography-subheading title-line-height pt-3 pb-1">{{i.name}}</div>
-                            <div class="font-weight-bold color-red">{{i.price}}฿</div>
+                            <div class="font-weight-bold color-red">{{i.price.$numberDecimal | number : '1.2-2'}}฿</div>
                         </a>
                     </div>
                 </div>

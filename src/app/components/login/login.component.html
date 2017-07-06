@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-5 bg-light-4 shadow-border p-4">
+            <form ngNoForm>
+                <h3 class="pb-2 mb-3">Please Log In</h3>
+                <div class="form-group">
+                    <label for="txt-email">Email</label>
+                    <input class="form-control" id="txt-email" placeholder="Enter email" type="email" [(ngModel)]="email">
+                </div>
+                <div class="form-group">
+                    <label for="txt-password">Password</label>
+                    <input class="form-control" id="txt-password" placeholder="Password" type="password" [(ngModel)]="password">
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" (click)="logIn()">Log In</button>
+                </div>
+                <div class="text-center mt-4">
+                    <span class="pr-1">Not a member?</span>
+                    <a routerLink="/register">Create Account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="msgDialog" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Warning</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">{{errMessage}}</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary text-white" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
