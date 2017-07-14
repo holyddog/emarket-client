@@ -18,6 +18,17 @@ header {
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
 }
 
+footer {
+    background-color: #202020;
+}
+
+.flex {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
 .bg-red {
     background-color: #F44336;
 }
@@ -44,19 +55,23 @@ header {
 }
 
 .color-black {
-    color: #333;
+    color: #333 !important;
 }
 .color-red {
-    color: #F44336;
+    color: #F44336 !important;
 }
 .color-green {
-    color: #4CAF50;
+    color: #4CAF50 !important;
 }
 .color-orange {
-    color: #FF5722;
+    color: #FF5722 !important;
 }
 .color-blue {
-    color: #03A9F4;
+    color: #03A9F4 !important;
+}
+
+.color-alpha-grey {
+    color: rgba(0, 0, 0, 0.54);
 }
 
 .shadow-border {
@@ -64,6 +79,37 @@ header {
     box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
     z-index: 1;
 }
+
+/* @font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(/fonts/MaterialIcons-Regular.eot);
+    src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+        url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+        url(/fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+} */
 
 .pad-10 {
     padding: 10px !important;
@@ -105,9 +151,14 @@ header {
 }
 
 .btn .material-icons {
-    margin-left: .5rem !important;
     font-size: 1.2rem !important;
     line-height: .8rem !important;
+}
+.btn .material-icons.ml {
+    margin-left: .5rem !important;
+}
+.btn .material-icons.mr {
+    margin-right: .5rem !important;
 }
 
 .btn-icon-text {    
@@ -142,6 +193,16 @@ header {
     height: 100px;
 }
 
+.box-border {
+    border: solid 1px #e2e2e2;
+}
+.tp-line {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);  
+}
+.bt-line {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);  
+}
+
 .title-line-height {
     line-height: 1.2rem;
 }
@@ -168,7 +229,7 @@ li:last-child .cat-item {
 }
 
 .title-bar {
-    padding-bottom: 1rem;
+    padding-bottom: .5rem;
     border-bottom: 1px solid #d9d9d9;
     margin-bottom: 1.5rem;
 }
@@ -209,4 +270,41 @@ li:last-child .cat-item {
 #pnl-highlight {
     height: 370px;
     overflow: hidden;
+}
+
+.order-list {
+    margin-bottom: 0;
+}
+.order-list td {
+    border-top-style: none;
+}
+.order-list thead th {
+    border-bottom: 1px solid #e1e1e1;
+}
+.order-list tfoot td, .table tfoot th {
+    color: rgba(0, 0, 0, 0.87);
+}
+.order-list tfoot tr {
+    border-top: 1px solid #e1e1e1;
+}
+
+.attached-width {
+    margin-left: -1.5rem !important;
+    margin-right: -1.5rem !important;
+}
+
+.check {
+    width: 30px;
+    text-align: center;
+    margin-right: 1rem;
+    opacity: 0;
+}
+.check.selected {
+    opacity: 1;
+}
+
+.table > tbody:first-child > tr:first-child td, .table > tbody:first-child > tr:first-child th, .table > tfoot:first-child > tr:first-child td, .table > tfoot:first-child > tr:first-child th, .table > thead:first-child > tr:first-child td, .table > thead:first-child > tr:first-child th {    
+    font-weight: bold;
+    color: #333;
+    height: auto;
 }

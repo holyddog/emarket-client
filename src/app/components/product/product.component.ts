@@ -27,7 +27,8 @@ export class ProductComponent implements OnInit {
             id: this.item.id,
             name: this.item.name,
             pic: this.item.pic,
-            price: parseFloat(this.item.price.$numberDecimal),
+            price: this.item.price,
+            ships: this.item.ships,
             qty: this.qty
         });
     }

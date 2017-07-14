@@ -1,0 +1,31 @@
+<div class="container-fluid">    
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="color-green text-center"><i class="material-icons">done</i>Thank you for your order.</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box-border p-3 mt-4">
+                <div *ngIf="order != null" class="row">
+                     <div class="col-md-3">
+                        <label>Order no:</label>
+                        <b>{{order.no}}</b>
+                    </div>
+                     <div class="col-md-3">
+                        <label>Date:</label>
+                        <b>{{order.orderDate| date: 'dd/MM/yyyy HH:mm'}}</b>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Total Price:</label>
+                         <b>{{order.nprice.$numberDecimal | number: '1.2-2'}}฿</b> 
+                    </div>
+                    <div class="col-md-3">
+                        <label>Payment Method:</label>
+                        <b>{{order.popt.name}}</b>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,9 @@
 <div class="container-fluid bg-light-4 p-4 shadow-border">
     <div class="row">
         <div class="col-md-12">
-            <h3 class="title-bar">Profile</h3>
+            <div class="title-bar">
+                <h3>Profile</h3>
+            </div>
         </div>
     </div>
     <form ngNoForm>
@@ -26,6 +28,9 @@
                     <input class="form-control" id="txt-lname" type="text" [(ngModel)]="lname">
                 </div>
             </div>
+        </div>                  
+        <div class="mt-4 text-center">
+            <button type="button" class="btn btn-primary">Update</button>
         </div>
     </form>
 </div>

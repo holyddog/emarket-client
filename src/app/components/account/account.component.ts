@@ -11,11 +11,15 @@ declare var $: any;
     templateUrl: 'account.component.html',
     styles: [`
         #sidebar {
-            width: 240px;
+            width: 260px;
         }
         .menu-item {
             display: block;
-            padding: .8rem;
+            padding: 1rem;            
+            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        }
+        .menu-item i {
+            color: #9E9E9E !important;
         }
     `]
 })

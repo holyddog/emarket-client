@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { ItemQtyElement } from './elements/item-qty.element';
+import { AutoTextareaElement } from './elements/auto-textarea.element';
 
 @NgModule({
     imports: [
@@ -10,12 +11,14 @@ import { ItemQtyElement } from './elements/item-qty.element';
         FormsModule
     ],
     declarations: [
-        ItemQtyElement
+        ItemQtyElement,
+        AutoTextareaElement
     ],
     providers: [
     ],
     exports: [
-        ItemQtyElement
+        ItemQtyElement,
+        AutoTextareaElement
     ]
 })
 export class SharedModule { }

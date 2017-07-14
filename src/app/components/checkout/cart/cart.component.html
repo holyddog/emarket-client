@@ -1,5 +1,5 @@
-<div>You have <b>{{cartService.count}} item{{(cartService.count > 1)? 's': ''}}</b> in your order</div>
-<table class="table mt-4">
+<div class="p-4 text-center">You have <b>{{cartService.count}} item{{(cartService.count > 1)? 's': ''}}</b> in your order</div>
+<table *ngIf="cartService.count > 0" class="table mt-4">
     <thead>
         <tr>
             <th></th>
@@ -11,7 +11,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let i of cartService.list()">
-            <td style="width: 80px">
+            <td class="text-center" style="width: 80px">
                 <a (click)="cartService.remove(i)"><i class="material-icons">close</i></a>
             </td>
             <td>
@@ -21,22 +21,39 @@
                     </div>
                     <div class="align-self-center typography-body-2">{{i.name}}</div>
                 </div>
+                <div class="form-group form-inline mt-3 mb-0">
+                    <label class="pr-2">Shipping:</label>
+                    <select class="form-control" [(ngModel)]="i.sprice" (change)="shipChange(i)">
+                        <option *ngFor="let s of i.ships" [value]="s.price">{{s.name}} ({{s.price | number: '1.2-2'}}฿)</option>
+                    </select>
+                    <!--<select class="form-control" [(ngModel)]="simpleValue">
+                        <option *ngFor="let s of i.ships" [value]="s.name">{{s.name}} ({{s.price | number: '1.2-2'}}฿)</option>
+                    </select>-->
+                </div>
             </td>
             <td style="width: 150px" class="text-center">{{i.price | number: '1.2-2'}}฿</td>
             <td style="width: 200px" class="text-center">
                 <item-qty [qty]="i.qty" (change)="qtyChange(i, $event)"></item-qty>
             </td>
-            <td style="width: 150px" class="text-center">{{i.tprice | number: '1.2-2'}}฿</td>
+            <td style="width: 150px" class="text-center">{{total(i) | number: '1.2-2'}}฿</td>
         </tr>
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="5" class="text-right">
-                <div class="typography-subheading">Subtotal:<span class="pl-4 typography-headline color-red">{{cartService.price | number: '1.2-2'}}฿</span></div>
+            <td colspan="5" class="text-right total-summary">
+                <div>Products:<span class="pl-4 typography-subheading">{{cartService.price | number: '1.2-2'}}฿</span></div>
+                <div>Shipping:<span class="pl-4 typography-subheading">{{cartService.sprice | number: '1.2-2'}}฿</span></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5" class="text-right total-summary">
+                <div class="typography-subheading">Total:<span class="pl-4 typography-headline color-red">{{cartService.price + cartService.sprice | number: '1.2-2'}}฿</span></div>
             </td>
         </tr>
     </tfoot>
 </table>
-<div class="mt-4 text-right">
-    <button class="btn btn-secondary" routerLink="/checkout/shipping">Shipping Info<i class="material-icons">navigate_next</i></button>
+<div class="mt-4 pt-4 tp-line attached-width d-flex flex-row">    
+    <div class="flex text-right">
+        <button class="btn btn-secondary mr-4" (click)="next()">Shipping Info<i class="material-icons ml">navigate_next</i></button>
+    </div>
 </div>

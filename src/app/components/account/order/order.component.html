@@ -1,0 +1,31 @@
+<div class="container-fluid bg-light-4 p-4 shadow-border">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="title-bar">
+                <h3>Orders</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center">Order</th>
+                        <th class="text-center">Placed on</th>
+                        <th class="text-center">Total</th>
+                        <th class="text-center">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let o of orders">
+                        <td><a routerLink="/">{{o.no}}</a></td>
+                        <td style="width: 200px" class="text-center">{{getDate(o.cdate) | date: 'dd/MM/yyyy HH:mm'}}</td>
+                        <td style="width: 200px" class="text-center">{{o.nprice.$numberDecimal | number: '1.2-2'}}฿</td>
+                        <td style="width: 200px" class="text-center">-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

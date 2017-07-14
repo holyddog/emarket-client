@@ -5,13 +5,16 @@
                 <div id="sidebar">
                     <ul class="list-inline bg-light-4 shadow-border mr-4">
                         <li>
-                            <a class="menu-item" routerLink="/account">Profile</a>
+                            <a class="menu-item" routerLink="/account"><i class="material-icons mr-3">receipt</i>Orders</a>
                         </li>
                         <li>
-                            <a class="menu-item" routerLink="/account/address">Address</a>
+                            <a class="menu-item" routerLink="/account/profile"><i class="material-icons mr-3">account_box</i>Profile</a>
                         </li>
                         <li>
-                            <a class="menu-item" routerLink="#" (click)="logOut()">Log Out</a>
+                            <a class="menu-item" routerLink="/account/address"><i class="material-icons mr-3">library_books</i>Addresses</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" (click)="logOut()"><i class="material-icons mr-3">lock_open</i>Log Out</a>
                         </li>
                     </ul>
                 </div>

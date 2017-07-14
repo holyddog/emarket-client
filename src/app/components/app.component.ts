@@ -4,6 +4,7 @@ import { isPlatformServer, isPlatformBrowser } from '@angular/common';
 import { AuthService } from '../services/auth.service';
 import { StorageService } from '../services/storage.service';
 import { CartService } from '../services/cart.service';
+import { CategoryService } from '../services/category.service';
 
 declare var $: any;
 
@@ -26,25 +27,14 @@ declare var $: any;
     `]
 })
 export class AppComponent implements OnInit {
-    isPlatformServer: boolean = false;
+    categories: object[] = [];
 
-    categories: object[] = [{
-        name: 'Clothing'
-    }, {
-        name: 'Electronics'
-    }, {
-        name: 'Shoes'
-    }, {
-        name: 'Watches'
-    }, {
-        name: 'Jewellery'
-    }];
+    constructor(@Inject(PLATFORM_ID) private platformId: Object, private authService: AuthService, private storageService: StorageService, private cartService: CartService, private categoryService: CategoryService) {}
 
-    constructor(@Inject(PLATFORM_ID) private platformId: Object, private authService: AuthService, private storageService: StorageService, private cartService: CartService) { 
-        this.isPlatformServer = isPlatformServer(this.platformId);
-    }
+    ngOnInit(): void {        
+        this.cartService.load();
+        this.categoryService.list().then(data => this.categories = data);
 
-    ngOnInit(): void {
         if (!this.authService.user) {
             if (this.storageService.get('user')) {
                 this.authService.user = this.storageService.get('user');

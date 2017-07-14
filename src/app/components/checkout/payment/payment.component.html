@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <form ngNoForm>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="p-4 text-center">Select the payment method</div>
+                <div class="p-3 box-border">
+                    <fieldset class="form-group mb-0">
+                        <div *ngFor="let o of opts; last as isLast" class="form-check {{(!isLast)? 'mb-3': 'mb-0'}}">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" [(ngModel)]="popt" name="ptype" [value]="o">
+                                {{o.name}}
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="p-4 text-center">Confirm your order</div>
+                <table *ngIf="cartService.count > 0" class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Product</th>
+                            <th class="text-center">Shipping</th>
+                            <th class="text-center">Quantity</th>
+                            <th class="text-center">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i of cartService.list()">
+                            <td>{{i.name}}</td>
+                            <td style="width: 120px" class="text-center">{{i.sprice | number: '1.2-2'}}฿</td>
+                            <td style="width: 100px" class="text-center">{{i.qty}}</td>
+                            <td style="width: 120px" class="text-center">{{total(i) | number: '1.2-2'}}฿</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5" class="text-right total-summary">
+                                <div class="typography-subheading">Total:<span class="pl-4 typography-headline color-red">{{cartService.price + cartService.sprice | number: '1.2-2'}}฿</span></div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="mt-4 pt-4 tp-line attached-width d-flex flex-row">
+    <div class="flex">
+        <button type="button" class="btn btn-link ml-4" (click)="before()"><i class="material-icons mr">navigate_before</i>Shipping Info</button>
+    </div>
+    <!-- <div class="flex text-right">
+        <form method="post" action="https://ipay.bangkokbank.com/b2c/eng/payment/payForm.jsp">
+            <input type="hidden" name="merchantId" value="4210" />
+            <input type="hidden" name="amount" value="{{cartService.price + cartService.sprice}}" />
+            <input type="hidden" name="orderRef" ng-value="12345678" />
+            <input type="hidden" name="orderRef1" value="" />
+            <input type="hidden" name="currCode" value="764" />
+            <input type="hidden" name="successUrl" ng-value="http://localhost:8000/checkout/payment" />
+            <input type="hidden" name="failUrl" ng-value="http://localhost:8000/checkout/payment" />
+            <input type="hidden" name="cancelUrl" ng-value="http://localhost:8000/checkout/payment" />
+            <input type="hidden" name="payType" value="N" />
+            <input type="hidden" name="lang" value="E" />
+            <input type="hidden" name="remark" value="" />
+            <button type="submit" class="btn btn-primary">Payment</button>
+        </form>
+    </div> -->
+    <div class="flex text-right">
+        <button type="button" class="btn btn-secondary mr-4" (click)="next()">Place Order<i class="material-icons ml">navigate_next</i></button>
+    </div>
+</div>
+<div class="modal fade" id="msgDialog" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Warning</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">{{errMessage}}</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary text-white" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

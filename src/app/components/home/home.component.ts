@@ -3,6 +3,7 @@ import { isPlatformServer, isPlatformBrowser } from '@angular/common';
 
 import { Config } from '../../consts/config.const';
 import { ItemService } from '../../services/item.service';
+import { CategoryService } from '../../services/category.service';
 
 declare var $: any;
 
@@ -15,25 +16,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     config: any = Config;
 
-    categories: object[] = [{
-        name: 'Clothing'
-    }, {
-        name: 'Electronics'
-    }, {
-        name: 'Shoes'
-    }, {
-        name: 'Watches'
-    }, {
-        name: 'Jewellery'
-    }, {
-        name: 'Health and Beauty'
-    }, {
-        name: 'Kids and Babies'
-    }, {
-        name: 'Sports'
-    }, {
-        name: 'Home and Garden'
-    }];
+    categories: any[] = [];
 
     newItems: object[] = [];
 
@@ -69,12 +52,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
         image: 'images/i7.jpg'
     }];
 
-    constructor(@Inject(PLATFORM_ID) private platformId: Object, private itemService: ItemService) { }
+    constructor(@Inject(PLATFORM_ID) private platformId: Object, private itemService: ItemService, private categoryService: CategoryService) { }
 
     ngOnInit() {
         this.itemService.list()
             .then(data => {
                 this.newItems = data;
+                return this.categoryService.list();
+            })
+            .then(data => {
+                this.categories = data;
             });
     }
 

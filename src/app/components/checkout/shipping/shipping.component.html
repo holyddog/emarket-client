@@ -1,0 +1,133 @@
+<div class="container-fluid">
+    <form ngNoForm>
+        <div class="row justify-content-md-center">
+            <div class="col-md-6">
+                <div class="p-4 text-center">Select a shipping address</div>
+                <div (click)="select(a)" *ngFor="let a of addrs; last as isLast" class="addr p-3 box-border {{(!isLast)? 'mb-3': ''}} d-flex flex-row p-relative">
+                    <div class="check color-green {{(a.def)? 'selected': ''}}"><i class="material-icons">done</i></div>
+                    <div class="flex">
+                        <b>{{a.fname + ' ' + a.lname}}</b>
+                        <div class="mt-2">{{a.addr}}</div>
+                        <div class="mt-2 lead">{{a.pcode}}</div>
+                        <div class="mt-2">Telephone: {{a.tel}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-7">
+                <div class="p-4 text-center">Add another address</div>
+                <div class="container-fluid mt-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="txt-fname">Firstname</label>
+                                <input class="form-control" id="txt-fname" type="text" [(ngModel)]="fname">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="txt-lname">Lastname</label>
+                                <input class="form-control" id="txt-lname" type="text" [(ngModel)]="lname">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Address</label>
+                                <auto-textarea [class]="'form-control'" [(ngModel)]="addr"></auto-textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Postal Code</label>
+                                <input class="form-control" type="text" [(ngModel)]="pcode">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input class="form-control" type="text" [(ngModel)]="city">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>State / Province</label>
+                                <select class="form-control">
+                                    <option>Bangkok</option>
+                                    <option>Chonburi</option>
+                                    <option>Nonthaburi</option>
+                                    <option>Phuket</option>
+                                    <option>Chaingmai</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Telephone</label>
+                                <input class="form-control" type="text" [(ngModel)]="tel">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!--<div class="col-md-4">
+                <div class="p-4 text-center">Shipping Method</div>
+                <div class="p-3 box-border">
+                    <fieldset class="form-group bt-line">
+                        <div class="form-check mb-3">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" [(ngModel)]="stype" name="stype" value="e">
+                                EMS
+                            </label>
+                            <div class="float-right">60.00฿</div>
+                        </div>
+                        <div class="form-check mb-3">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" [(ngModel)]="stype" name="stype" value="r">
+                                Register
+                            </label>
+                            <div class="float-right">40.00฿</div>
+                        </div>
+                        <div class="form-check mb-3">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" [(ngModel)]="stype" name="stype" value="p">
+                                Parcel
+                            </label>
+                            <div class="float-right">20.00฿</div>
+                        </div>
+                        <div class="form-check mb-3">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" [(ngModel)]="stype" name="stype" value="f">
+                                Free Shipping
+                            </label>
+                            <div class="float-right">0.00฿</div>
+                        </div>
+                    </fieldset>
+                    <div class="text-right mb-3">
+                        <div class="color-alpha-grey">Products:<span class="pl-4 typography-subheading">0.00฿</span></div>
+                    </div>
+                    <div class="text-right mb-3">
+                        <div class="color-alpha-grey">Shipping:<span class="pl-4 typography-subheading">0.00฿</span></div>
+                    </div>
+                    <div class="text-right tp-line pt-3">
+                        <div class="typography-subheading">Total:<span class="pl-4 typography-headline color-red">0.00฿</span></div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </form>
+</div>
+<div class="mt-4 pt-4 tp-line attached-width d-flex flex-row">
+    <div class="flex">
+        <button type="button" class="btn btn-link ml-4" (click)="before()"><i class="material-icons mr">navigate_before</i>Shopping Cart</button>
+    </div>
+    <div class="flex text-right">
+        <button type="button" class="btn btn-secondary mr-4" (click)="next()">Payment Method<i class="material-icons ml">navigate_next</i></button>
+    </div>
+</div>

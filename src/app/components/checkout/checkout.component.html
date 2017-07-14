@@ -2,19 +2,26 @@
     <div class="row">
         <div class="col-md-12">
             <div class="container bg-light-4 p-4 shadow-border">
-                <div class="d-flex flex-row">
-                    <div class="col text-center p-4">
-                        <div class="circle">1</div>Shopping Cart
-                    </div>
-                    <div class="col text-center p-4">
-                        <div class="circle">2</div>Shipping Info
-                    </div>
-                    <div class="col text-center p-4">
-                        <div class="circle">3</div>Payment Method
-                    </div>
-                    <div class="col text-center p-4">
-                        <div class="circle">4</div>Confirmation
-                    </div>
+                <div id="step-bar" class="d-flex flex-row pt-4 pb-4">
+                    <a class="col text-center">
+                        <span class="circle step-1">1</span>
+                        <div class="step-text">Shopping Cart</div>
+                    </a>
+                    <a class="col text-center {{inactive(2)}}">
+                        <span class="line"></span>
+                        <span class="circle step-2">2</span>
+                        <div class="step-text">Shipping Info</div>
+                    </a>
+                    <a class="col text-center {{inactive(3)}}">
+                        <span class="line"></span>
+                        <span class="circle step-3">3</span>
+                        <div class="step-text">Payment</div>
+                    </a>
+                    <a class="col text-center {{inactive(4)}}">
+                        <span class="line"></span>
+                        <span class="circle step-4">4</span>
+                        <div class="step-text">Order Complete</div>
+                    </a>
                 </div>
                 <div class="mt-4">
                     <router-outlet></router-outlet>

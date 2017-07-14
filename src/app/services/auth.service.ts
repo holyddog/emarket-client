@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 
 import { StorageService } from './storage.service';
+import { CheckoutService } from './checkout.service';
 import { UserModel } from '../models/user.model';
 import { Config } from '../consts/config.const';
 
@@ -12,7 +13,7 @@ export class AuthService {
     user: UserModel;
     url: string;
 
-    constructor(private http: Http, private storage: StorageService) { }
+    constructor(private http: Http, private storage: StorageService, private checkout: CheckoutService) { }
 
     // me(): object {
     //     return this.authen.get('api/me')
@@ -21,6 +22,13 @@ export class AuthService {
     //             return res.json();
     //         });
     // }
+
+    createAuthorizationHeader(headers: Headers) {
+        let user: any = this.storage.get('user');
+        if (user && user.token) {
+            headers.append('Authorization', `Bearer ${user.token}`);
+        }
+    }
 
     logIn(email: string, pwd: string): any {
         let body = {
@@ -47,6 +55,7 @@ export class AuthService {
     logOut(): void {
         this.user = null;
         this.storage.remove('user');
+        this.storage.remove('cart');
     }
 
     register(email: string, pwd: string, fname: string, lname: string): any {

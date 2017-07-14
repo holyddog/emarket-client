@@ -20,6 +20,7 @@ import { AuthService } from './services/auth.service';
 import { StorageService } from './services/storage.service';
 import { ItemService } from './services/item.service';
 import { CartService } from './services/cart.service';
+import { CategoryService } from './services/category.service';
 
 @NgModule({
     imports: [
@@ -48,6 +49,6 @@ import { CartService } from './services/cart.service';
         RegisterComponent, RegisterSuccessComponent
     ],
     exports: [AppComponent],
-    providers: [AuthService, StorageService, ItemService, CartService]
+    providers: [AuthService, StorageService, ItemService, CartService, CategoryService]
 })
 export class AppModule { }

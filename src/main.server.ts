@@ -28,6 +28,7 @@ app.set('views', 'src');
 app.use('/', express.static(path.join('src', 'assets')));
 app.use('/', express.static('dist', { index: false }));
 
+app.use('/backoffice', express.static('f:\\web\\test'));
 
 app.get('/favicon.ico', (req, res) => {
     res.sendStatus(204);
