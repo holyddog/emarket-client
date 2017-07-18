@@ -1,3 +1,9 @@
+export class ShopModel {
+    id?: number;
+    name?: string;
+    url?: string;
+}
+
 export class UserModel {
     id?: number;
     email?: string;
@@ -5,4 +11,5 @@ export class UserModel {
     fname?: string;
     lname?: string;
     token?: string;
+    shop?: ShopModel;
 }

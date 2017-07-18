@@ -4,7 +4,7 @@
             <div class="title-bar d-flex flex-row">
                 <h3 class="flex">Addresses</h3>
                 <div>
-                    <button routerLink="/account/address-form" class="btn btn-link"><i class="material-icons mr">add</i>Create address</button>
+                    <button routerLink="/account/address/new" class="btn btn-link"><i class="material-icons mr">add</i>Create address</button>
                 </div>
             </div>
         </div>
@@ -12,15 +12,15 @@
     <div class="row">
         <div class="col-md-12">
             <div *ngFor="let a of addrs; last as isLast" class="addr p-3 box-border {{(!isLast)? 'mb-3': ''}} d-flex flex-row p-relative">
-                <div class="check color-green {{(a.def)? 'selected': ''}}"><i class="material-icons">done</i></div>
+                <div class="check color-green {{(a.default)? 'selected': ''}}"><i class="material-icons">done</i></div>
                 <div class="flex">
-                    <b>{{a.fname + ' ' + a.lname}}</b>
-                    <div class="mt-2">{{a.addr}}</div>
-                    <div class="mt-2 lead">{{a.pcode}}</div>
-                    <div class="mt-2">Telephone: {{a.tel}}</div>
+                    <b>{{a.name}}</b>
+                    <div class="mt-2">{{a.full_address}}</div>
+                    <div class="mt-2 lead">{{a.postal_code}}</div>
+                    <div class="mt-2">Telephone: {{a.telephone}}</div>
                 </div>
                 <div class="cmd p-absolute flex-row p-3" style="right: 0; top: 0">
-                    <a routerLink="/account/address/new">Edit</a>
+                    <a routerLink="/account/address/{{a.id}}">Edit</a>
                     <div class="pl-2 pr-2">|</div>
                     <a routerLink="/account/address/new">Delete</a>
                 </div>

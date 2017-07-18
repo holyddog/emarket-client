@@ -5,7 +5,7 @@ import { Http, Headers } from '@angular/http';
 
 import { StorageService } from './storage.service';
 import { CheckoutService } from './checkout.service';
-import { UserModel } from '../models/user.model';
+import { UserModel, ShopModel } from '../models/user.model';
 import { Config } from '../consts/config.const';
 
 @Injectable()
@@ -50,6 +50,11 @@ export class AuthService {
                 }
                 return data;
             });
+    }
+
+    setShop(data: ShopModel): void {
+        this.user.shop = data;        
+        this.storage.set('user', this.user);
     }
 
     logOut(): void {

@@ -2,25 +2,19 @@
     <div class="row">
         <div class="col-md-12">
             <div class="title-bar">
-                <h3>Create address</h3>
+                <h3>{{(addressId)? 'Edit address': 'Create address'}}</h3>
             </div>
         </div>
     </div>
-    <form ngNoForm>
+    <form *ngIf="loaded" ngNoForm>
         <div class="row">
             <div class="col-md-12">
                 <div class="container-fluid mt-4">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="txt-fname">Firstname</label>
-                                <input class="form-control" id="txt-fname" type="text" [(ngModel)]="fname">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="txt-lname">Lastname</label>
-                                <input class="form-control" id="txt-lname" type="text" [(ngModel)]="lname">
+                                <label for="txt-fname">Name</label>
+                                <input class="form-control" id="txt-fname" type="text" [(ngModel)]="data.name">
                             </div>
                         </div>
                     </div>
@@ -28,7 +22,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Address</label>
-                                <auto-textarea [class]="'form-control'" [(ngModel)]="addr"></auto-textarea>
+                                <auto-textarea [class]="'form-control'" [(ngModel)]="data.address"></auto-textarea>
                             </div>
                         </div>
                     </div>
@@ -36,7 +30,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Postal Code</label>
-                                <input class="form-control" type="text" [(ngModel)]="pcode">
+                                <input class="form-control" type="text" [(ngModel)]="data.postal_code">
                             </div>
                         </div>
                     </div>
@@ -44,19 +38,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>City</label>
-                                <input class="form-control" type="text" [(ngModel)]="city">
+                                <input class="form-control" type="text" [(ngModel)]="data.city">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>State / Province</label>
-                                <select class="form-control">
-                                        <option>Bangkok</option>
-                                        <option>Chonburi</option>
-                                        <option>Nonthaburi</option>
-                                        <option>Phuket</option>
-                                        <option>Chaingmai</option>
-                                    </select>
+                                <select class="form-control" [(ngModel)]="data.province">
+                                    <option *ngFor="let p of provinces" [ngValue]="p">{{p.name}}</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -64,7 +54,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Telephone</label>
-                                <input class="form-control" type="text" [(ngModel)]="tel">
+                                <input class="form-control" type="text" [(ngModel)]="data.telephone">
                             </div>
                         </div>
                     </div>
@@ -72,7 +62,23 @@
             </div>
         </div>          
         <div class="mt-4 text-center">
-            <button type="button" class="btn btn-primary">Save</button>
+            <button type="button" (click)="add()" class="btn btn-primary">Save</button>
         </div>
     </form>
+</div>
+<div class="modal fade" id="msgDialog" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Warning</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">{{errMessage}}</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary text-white" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
 </div>

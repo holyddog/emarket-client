@@ -1,15 +1,6 @@
 body {
     background-color: #f3f3f3;
 }
-body.active {
-    overflow: auto;
-}
-
-button {
-    outline: 0 !important;
-}
-
-a { cursor: pointer; }
 
 header {
     background-color: #0277BD;
@@ -22,113 +13,6 @@ footer {
     background-color: #202020;
 }
 
-.flex {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-}
-
-.bg-red {
-    background-color: #F44336;
-}
-.bg-green {
-    background-color: #4CAF50;
-}
-.bg-blue {
-    background-color: #03A9F4;
-}
-.bg-orange {
-    background-color: #FF5722;
-}
-.bg-dark-grey {
-    background-color: #616161;
-}
-.bg-dark-blue {    
-    background-color: #0288D1;
-}
-.bg-dark-red {
-    background-color: #D32F2F;
-}
-.bg-dark-orange {
-    background-color: #F57C00;
-}
-
-.color-black {
-    color: #333 !important;
-}
-.color-red {
-    color: #F44336 !important;
-}
-.color-green {
-    color: #4CAF50 !important;
-}
-.color-orange {
-    color: #FF5722 !important;
-}
-.color-blue {
-    color: #03A9F4 !important;
-}
-
-.color-alpha-grey {
-    color: rgba(0, 0, 0, 0.54);
-}
-
-.shadow-border {
-    -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
-    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
-    z-index: 1;
-}
-
-/* @font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: url(/fonts/MaterialIcons-Regular.eot);
-    src: local('Material Icons'),
-        local('MaterialIcons-Regular'),
-        url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
-        url(/fonts/MaterialIcons-Regular.woff) format('woff'),
-        url(/fonts/MaterialIcons-Regular.ttf) format('truetype');
-}
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
-} */
-
-.pad-10 {
-    padding: 10px !important;
-}
-.pad-15 {
-    padding: 15px !important;
-}
-
-.p-relative {
-    position: relative !important;
-}
-.p-absolute {
-    position: absolute !important;
-}
-
-.form-control.border {
-    border: 1px solid rgba(0, 0, 0, 0.12) !important;
-}
-
 #logo {
     width: 200px;
 }
@@ -139,38 +23,14 @@ footer {
     border: 1px solid rgba(0, 0, 0, 0.12);
 }
 #pnl-cart .material-icons {    
-    font-size: 20px;
-    position: absolute;
+    position: absolute;    
+    margin-top: -9px;
     top: 50%;
-    margin-top: -5px;
 }
 #pnl-cart .count {    
     margin-left: 25px;
     margin-right: 5px;
     border-radius: 2px;
-}
-
-.btn .material-icons {
-    font-size: 1.2rem !important;
-    line-height: .8rem !important;
-}
-.btn .material-icons.ml {
-    margin-left: .5rem !important;
-}
-.btn .material-icons.mr {
-    margin-right: .5rem !important;
-}
-
-.btn-icon-text {    
-    position: relative;
-    padding-left: 45px !important;
-}
-.btn-icon-text .material-icons {    
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    margin-top: -5px;
-    left: 15px;
 }
 
 .thumb-images {
@@ -191,16 +51,6 @@ footer {
 
 .header {
     height: 100px;
-}
-
-.box-border {
-    border: solid 1px #e2e2e2;
-}
-.tp-line {
-    border-top: 1px solid rgba(0, 0, 0, 0.12);  
-}
-.bt-line {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);  
 }
 
 .title-line-height {
@@ -301,10 +151,4 @@ li:last-child .cat-item {
 }
 .check.selected {
     opacity: 1;
-}
-
-.table > tbody:first-child > tr:first-child td, .table > tbody:first-child > tr:first-child th, .table > tfoot:first-child > tr:first-child td, .table > tfoot:first-child > tr:first-child th, .table > thead:first-child > tr:first-child td, .table > thead:first-child > tr:first-child th {    
-    font-weight: bold;
-    color: #333;
-    height: auto;
 }

@@ -17,7 +17,7 @@
                 </div>
                 <div class="align-self-center col-md-2">
                     <a id="pnl-cart" class="text-center float-right text-white pl-3 pr-3 pt-1 pb-1" routerLink="/checkout">
-                        <i class="material-icons">shopping_cart</i>
+                        <i class="material-icons md-18">shopping_cart</i>
                         <span class="d-inline-block bg-green p-1 count">{{cartService.count}}</span>
                         <span class="d-inline-block">{{cartService.price | number: '1.2-2'}}฿</span>
                     </a>
@@ -26,8 +26,8 @@
             <div class="d-flex justify-content-end text-uppercase">
                 <a class="cat-menu" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
                 <a class="cat-menu" routerLink="#" routerLinkActive="active" *ngFor="let c of categories">{{c.name}}</a>
-                <a *ngIf="authService.user == null" class="ml-auto cat-menu btn-icon-text" routerLink="/login" routerLinkActive="active"><i class="material-icons">lock_outline</i>Log In</a>
-                <a *ngIf="authService.user != null" class="ml-auto cat-menu btn-icon-text" routerLink="/account" routerLinkActive="active"><i class="material-icons">account_circle</i>{{authService.user.fname + " " + authService.user.lname}}</a>
+                <a *ngIf="authService.user == null" class="ml-auto cat-menu btn-icon-text" routerLink="/login" routerLinkActive="active"><i class="material-icons md-24">lock_outline</i>Log In</a>
+                <a *ngIf="authService.user != null" class="ml-auto cat-menu btn-icon-text" routerLink="/account" routerLinkActive="active"><i class="material-icons md-24">account_circle</i>{{authService.user.fname + " " + authService.user.lname}}</a>
             </div>
         </div>
         <div class="menu-bar bg-dark-blue"></div>

@@ -12,10 +12,12 @@ import { OrderComponent } from './components/account/order/order.component';
 import { ProfileComponent } from './components/account/profile/profile.component';
 import { AddressComponent } from './components/account/address/address.component';
 import { AddressFormComponent } from './components/account/address/address-form.component';
+import { OpenShopComponent } from './components/account/open-shop/open-shop.component';
 
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AddressService } from './services/address.service';
+import { ShopService } from './services/shop.service';
 
 @NgModule({
     imports: [
@@ -32,12 +34,16 @@ import { AddressService } from './services/address.service';
                     { path: '', component: OrderComponent },
                     { path: 'profile', component: ProfileComponent },
                     { path: 'address', component: AddressComponent },
+                    { path: 'open-shop', component: OpenShopComponent },
                     { path: 'address/:id', component: AddressFormComponent }
                 ]
             }
         ])
     ],
-    declarations: [AccountComponent, OrderComponent, ProfileComponent, AddressComponent, AddressFormComponent],
-    providers: [AuthService, AuthGuardService, AddressService]
+    declarations: [
+        AccountComponent, OrderComponent, ProfileComponent, 
+        AddressComponent, AddressFormComponent, OpenShopComponent
+    ],
+    providers: [AuthService, AuthGuardService, AddressService, ShopService]
 })
 export class AccountModule { }
